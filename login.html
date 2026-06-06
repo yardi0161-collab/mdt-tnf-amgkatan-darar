@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mandalika MDT</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Orbitron',sans-serif;
+}
+
+body{
+    min-height:100vh;
+    background:linear-gradient(135deg,#0f172a,#111827);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+}
+
+.card{
+    width:100%;
+    max-width:380px;
+    background:#1e293b;
+    border-radius:20px;
+    padding:30px;
+    border:1px solid #334155;
+    box-shadow:0 0 30px rgba(0,150,255,.25);
+}
+
+.logo{
+    text-align:center;
+}
+
+.logo img{
+    width:90px;
+    height:90px;
+    border-radius:50%;
+    border:3px solid #38bdf8;
+    object-fit:cover;
+}
+
+.title{
+    text-align:center;
+    margin-top:15px;
+}
+
+.title h1{
+    color:white;
+    font-size:28px;
+}
+
+.title p{
+    color:#38bdf8;
+    margin-top:5px;
+    font-size:13px;
+}
+
+.status{
+    margin-top:25px;
+    background:#0f172a;
+    border-radius:10px;
+    padding:12px;
+    text-align:center;
+    color:#22c55e;
+}
+
+.btn{
+    width:100%;
+    border:none;
+    padding:15px;
+    margin-top:15px;
+    border-radius:12px;
+    cursor:pointer;
+    font-size:15px;
+    font-weight:bold;
+    transition:.3s;
+}
+
+.btn:hover{
+    transform:translateY(-2px);
+}
+
+.discord{
+    background:#5865F2;
+    color:white;
+}
+
+.emergency{
+    background:#ef4444;
+    color:white;
+}
+
+.footer{
+    text-align:center;
+    margin-top:20px;
+    color:#94a3b8;
+    font-size:11px;
+}
+</style>
+</head>
+<body>
+
+<div class="card">
+
+    <div class="logo">
+        <img src="logo.png" alt="Logo">
+    </div>
+
+    <div class="title">
+        <h1>FUTURISTIC MDT</h1>
+        <p>Mobile Data Terminal System</p>
+    </div>
+
+    <div class="status">
+        ● SYSTEM ONLINE
+    </div>
+
+    <button class="btn discord" onclick="loginDiscord()">
+        LOGIN DISCORD
+    </button>
+
+    <button class="btn emergency" onclick="alert('Hubungi Administrator Server')">
+        GABISA LOGIN?
+    </button>
+
+    <div class="footer">
+        personel by iaann
+    </div>
+
+</div>
+
+<script>
+function loginDiscord(){
+    window.location.href =
+    "https://discord.com/oauth2/authorize?client_id=CLIENT_ID_KAMU&response_type=code&redirect_uri=REDIRECT_URI_KAMU&scope=identify%20email";
+}
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+
+<script>
+const supabase = window.supabase.createClient(
+  "https://iejyusqakqrcavzbscqz.supabase.co",
+  "sb_publishable_S-67t9DUNS4cm30K4Ao1Xw_eTxKwXr2"
+);
+
+async function loginDiscord() {
+  await supabase.auth.signInWithOAuth({
+    provider: 'discord'
+  });
+}
+</script>
+
+</body>
+</html>
+    
